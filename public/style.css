@@ -8,4 +8,5 @@
 }
 body {
   font-family: "Product sans", sans-serif;
+  overflow-x: hidden;
 }

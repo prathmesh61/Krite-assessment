@@ -13,13 +13,15 @@
     <title>Document</title>
   </head>
   <body>
-    <main class="relative container m-auto w-full h-screen flex gap-4 p-10">
+    <main
+      class="relative container mx-auto w-full min-h-screen flex flex-col xl:flex-row xl:gap-4 gap-3 p-5 md:p-10"
+    >
       <!-- sideBar html -->
       <section
         class="w-[300px] flex flex-col border-2 border-lightDark rounded-md p-2"
       >
         <!-- wrapper so we can give flex-1 upper-Side-Bar -->
-        <div id="Sidebar-upper" class="w-full flex flex-col flex-1">
+        <div id="Sidebar-upper" class="w-full flex flex-col flex-1 p">
           <!-- logo -->
           <div class="flex justify-between items-center p-2">
             <div class="flex items-center justify-center gap-x-2">
@@ -148,14 +150,18 @@
         <nav
           class="w-full flex justify-between border-b-2 border-b-gray-100 pb-2"
         >
-          <h2 class="font-bold text-xl">Products</h2>
+          <h2 class="font-bold text-lg xl:text-xl">Products</h2>
           <div class="flex items-center gap-x-2">
-            <div class="flex items-center border-2 border-gray-300 rounded-md">
+            <div
+              class="w-40 flex items-center border-2 border-gray-300 rounded-md"
+            >
               <i class="ri-search-eye-line text-lg ml-2"></i>
               <input
+                id="input"
                 type="text"
+                value=""
                 placeholder="Search for.."
-                class="px-2 placeholder:text-gray-400 text-black outline-none"
+                class="px-2 text-xs placeholder:text-gray-400 placeholder:text-xs text-black outline-none"
               />
             </div>
             <i
@@ -166,9 +172,105 @@
             ></i>
           </div>
         </nav>
-        <!-- footer -->
+        <!-- fliters container -->
         <div
-          class="absolute bottom-16 left-[50%] max-w-xl flex justify-center items-center gap-x-3 border-2 border-gray-200 rounded-md mt-5 p-2"
+          class="flex justify-between items-center flex-wrap gap-2 xl:gap-0 mb-3"
+        >
+          <div class="flex items-center gap-1 flex-wrap">
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <i class="ri-command-fill"></i>
+              <span class="text-xs font-bold">All brands</span>
+              <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <span class="text-xs font-bold">Desk</span>
+              <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <span class="text-xs font-bold">Tags</span>
+              <i class="ri-arrow-down-s-fill"></i>
+            </div>
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <i class="ri-sort-asc text-gray-400"></i>
+              <span class="text-xs font-bold text-gray-400">Sort</span>
+            </div>
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <i class="ri-sound-module-line text-gray-400"></i>
+              <span class="text-xs font-bold text-gray-400">Filter</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1">
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <span class="text-xs font-bold">Meeting</span>
+              <i class="ri-slideshow-2-fill"></i>
+            </div>
+            <div
+              class="flex items-center gap-1 border-2 border-gray-300 rounded-md px-2"
+            >
+              <span class="text-xs font-bold">Import</span>
+              <i class="ri-import-fill"></i>
+            </div>
+          </div>
+        </div>
+        <!-- table -->
+
+        <div class="w-full overflow-x-auto">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Brand
+                </th>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Description
+                </th>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Images
+                </th>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Categories
+                </th>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Tags
+                </th>
+                <th
+                  class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Next Meeting
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              id="dataBody"
+              class="bg-white divide-y divide-gray-200"
+            ></tbody>
+          </table>
+        </div>
+        <!-- footer buttons container -->
+        <div
+          class="max-w-xl flex justify-center items-center flex-wrap gap-x-3 border-2 border-gray-200 rounded-md mt-5 p-2 xl:ml-64"
         >
           <div
             class="flex items-center gap-x-1 px-2 border-2 border-gray-200 rounded-md"
